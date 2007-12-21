@@ -16,6 +16,7 @@ BuildRequires:	tetex-latex
 Requires(post):	tetex
 Requires(postun):	tetex
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package provides a latex class for letters and faxes in French.
