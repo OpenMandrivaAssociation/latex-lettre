@@ -1,7 +1,7 @@
 %define	package	lettre
 %define	name	latex-%{package}
 %define	version	2.346
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 Name: 		%{name}
 Version: 	%{version}
