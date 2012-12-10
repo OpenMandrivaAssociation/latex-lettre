@@ -1,52 +1,40 @@
-%define	package	lettre
-%define	name	latex-%{package}
-%define	version	2.346
-%define	release	%mkrel 3
-
-Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
+Name: 		latex-lettre
+Version: 	2.346
+Release: 	2
 Summary: 	Letters and faxes in French
 License: 	LPPL
 Group: 		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/lettre/
-Source:	 	ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/%{package}.tar.bz2
-Requires: 	tetex-latex
-BuildRequires:	tetex-latex
-Requires(post):	tetex
-Requires(postun):	tetex
+Source0: 	ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/lettre.tar.bz2
+Requires: 	texlive-latex texlive-collection-latex
+BuildRequires:	texlive-latex texlive-collection-latex
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package provides a latex class for letters and faxes in French.
 
 %prep
-%setup -q -n %{package}
+%setup -q -n lettre
 
 %build
 
 %install
-rm -rf %{buildroot}
+install -d -m 755 %{buildroot}%{_datadir}/texmf/tex/latex/lettre
+install -m 644 inputs/* %{buildroot}%{_datadir}/texmf/tex/latex/lettre
 
-install -d -m 755 %{buildroot}%{_datadir}/texmf/tex/latex/%{package}
-install -m 644 inputs/* %{buildroot}%{_datadir}/texmf/tex/latex/%{package}
+install -d -m 755 %{buildroot}%{_datadir}/texmf/doc/latex/lettre
+install -m 644 doc/* %{buildroot}%{_datadir}/texmf/doc/latex/lettre
 
-install -d -m 755 %{buildroot}%{_datadir}/texmf/doc/latex/%{package}
-install -m 644 doc/* %{buildroot}%{_datadir}/texmf/doc/latex/%{package}
+%post -p %_bindir/texhash
 
-%clean
-rm -rf %{buildroot}
-
-%post
-/usr/bin/env - /usr/bin/texhash 2>/dev/null
-
-%postun
-/usr/bin/env - /usr/bin/texhash 2>/dev/null
+%postun -p %_bindir/texhash
 
 %files
 %defattr(-,root,root)
 %doc ALIRE LICENSE lppl.txt README
-%{_datadir}/texmf/tex/latex/%{package}
-%{_datadir}/texmf/doc/latex/%{package}
+%{_datadir}/texmf/tex/latex/lettre
+%{_datadir}/texmf/doc/latex/lettre
 
+%changelog
+* Tue Jun 27 2006 Guillaume Rousse <guillomovitch@mandriva.org> 2.346-1mdv2007.0
+- first mdv package
