@@ -4,7 +4,7 @@ Release: 	3
 Summary: 	Letters and faxes in French
 License: 	LPPL
 Group: 		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/lettre/
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/lettre/
 Source0: 	ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/lettre.tar.bz2
 Requires: 	texlive-latex texlive-collection-latex
 BuildRequires:	texlive-latex texlive-collection-latex
